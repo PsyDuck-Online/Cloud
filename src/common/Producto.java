@@ -1,12 +1,13 @@
 package common;
 
 import java.io.File;
+import java.io.Serializable;
 
 /**
  *
  * @author david
  */
-public class Producto {
+public class Producto implements Serializable {
 
     private static int numProductos = 0;
     private int id;
@@ -16,6 +17,11 @@ public class Producto {
     private File img;
 
     public Producto(Producto p) {
+        this.id = p.getId();
+        this.cantidad = 1;
+        this.nombre = p.getNombre();
+        this.precio = p.getPrecio();
+        this.img = p.getImg();
     }
 
     public Producto(String nombre, float precio, int cantidad, File img) {
